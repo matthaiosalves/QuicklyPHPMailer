@@ -1,4 +1,5 @@
 # QuicklyPHPMailer
+
 Contributors: Matheus Alves
 Tags: email, PHPMailer, SMTP, mail
 Requires at least: 5.0
@@ -9,16 +10,22 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Plugin para enviar e-mails usando PHPMailer sem depender do PHPMailer do WordPress.
 
-# Descrição 
+# Descrição
 
 Este plugin permite o envio de e-mails utilizando a biblioteca PHPMailer sem depender da versão embutida no WordPress.
 
-# Instalação 
+# Instalação
 
 1. Faça o upload dos arquivos do plugin para o diretório `/wp-content/plugins/` ou instale diretamente através do repositório de plugins do WordPress.
 2. Ative o plugin através do menu 'Plugins' no WordPress.
 
-# Changelog 
+3. Configure o seu formulário
+
+```sh
+method="post" action="<?php echo admin_url('admin-post.php'); ?>
+```
+
+# Changelog
 
 = 1.0 =
 

@@ -19,6 +19,12 @@ Este plugin permite o envio de e-mails utilizando a biblioteca PHPMailer sem dep
 1. Faça o upload dos arquivos do plugin para o diretório `/wp-content/plugins/` ou instale diretamente através do repositório de plugins do WordPress.
 2. Ative o plugin através do menu 'Plugins' no WordPress.
 
+3. Configure o seu formulário
+
+```sh
+method="post" action="<?php echo admin_url('admin-post.php'); ?>
+```
+
 # Changelog
 
 = 1.0 =
