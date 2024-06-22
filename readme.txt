@@ -1,4 +1,4 @@
-=== EasyMail PHPMailer ===
+=== QuicklyPHPMailer ===
 Contributors: Matheus Alves
 Tags: email, PHPMailer, SMTP, mail
 Requires at least: 5.0
