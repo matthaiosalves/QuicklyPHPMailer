@@ -4,7 +4,7 @@ Plugin Name: QuicklyPHPMailer
 Description: Plugin para enviar e-mails usando PHPMailer sem depender do PHPMailer do WordPress.
 Version: 1.0
 Author: Matheus Alves
-Author URI: https://www.linkedin.com/in/matheusalveso/
+Author URI: https://github.com/matthaiosalves/QuicklyPHPMailer
 */
 
 if (!defined('ABSPATH')) {
