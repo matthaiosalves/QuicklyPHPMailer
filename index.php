@@ -44,11 +44,7 @@ function sendEmail($destinatario, $assunto, $mensagem)
 
 function pluginHandleRequest()
 {
-    if (isset($_POST["_wpnonce"])) {
-        if (!wp_verify_nonce($_POST["_wpnonce"], 'send_email_nonce')) {
-            die('Erro de segurança. Por favor, recarregue a página e tente novamente.');
-        }
-
+    if (isset($_POST["nome"])) {
         $nome = isset($_POST["nome"]) ? htmlspecialchars($_POST["nome"]) : '';
         $phone = isset($_POST["phone"]) ? filter_var($_POST["phone"], FILTER_SANITIZE_STRING) : '';
         $mensage = isset($_POST['mensage']) ? filter_var($_POST['mensage'], FILTER_SANITIZE_STRING) : '';
@@ -72,13 +68,12 @@ function pluginHandleRequest()
         $resultado = sendEmail($destinatario, $assunto, $mensagem);
 
         if ($resultado === true) {
-            echo 'E-mail enviado com sucesso!';
+            echo esc_html('E-mail enviado com sucesso!');
         } else {
-            echo $resultado;
+            echo esc_html($resultado);
         }
         exit;
     }
 }
-
 
 add_action('init', 'pluginHandleRequest');
