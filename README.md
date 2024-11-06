@@ -1,32 +1,37 @@
-# QuicklyPHPMailer
+# QuicklyPHPMailer com Lógica de Filas
 
-Contributors: Matheus Alves
-Tags: email, PHPMailer, SMTP, mail
-Requires at least: 5.0
-Tested up to: 6.2
-Stable tag: 1.0
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Esta versão do QuicklyPHPMailer implementa uma lógica de filas para o envio de e-mails, permitindo o envio assíncrono de mensagens sem sobrecarregar o servidor.
 
-Plugin para enviar e-mails usando PHPMailer sem depender do PHPMailer do WordPress.
+## Visão Geral
 
-# Descrição
+A lógica de filas enfileira os e-mails no WordPress como posts personalizados (`email_queue`). A fila processa os e-mails em segundo plano, com tentativas de reenvio configuráveis em caso de falhas.
 
-Este plugin permite o envio de e-mails utilizando a biblioteca PHPMailer sem depender da versão embutida no WordPress.
+## Funcionalidades
 
-# Instalação
+- **Fila de Envio**: Ao invés de enviar e-mails imediatamente, eles são enfileirados e processados posteriormente.
+- **Controle de Tentativas**: Em caso de falha, o sistema reenvia o e-mail até três vezes.
+- **Processamento Assíncrono**: A fila é processada em segundo plano para não impactar a experiência do usuário.
 
-1. Faça o upload dos arquivos do plugin para o diretório `/wp-content/plugins/` ou instale diretamente através do repositório de plugins do WordPress.
-2. Ative o plugin através do menu 'Plugins' no WordPress.
+## Como Usar
 
-3. Configure o seu formulário
+1. **Instalação**: Instale o plugin no diretório de plugins do WordPress.
+2. **Configuração**: Configure o PHPMailer com suas credenciais no código (`HOST`, `USERNAME`, `PASSWORD`).
+3. **Envio de E-mails**: Utilize o formulário para enviar e-mails que serão enfileirados e processados em segundo plano.
 
-```sh
-method="post" action="<?php echo admin_url('admin-post.php'); ?>
-```
+## Estrutura do Código
 
-# Changelog
+- `enfileirarEmail`: Função que adiciona e-mails à fila (`email_queue`).
+- `processarFilaDeEmails`: Processa a fila, tentando enviar cada e-mail. Em caso de falha, faz até 3 tentativas.
+- `sendEmail`: Função de envio de e-mail utilizando o PHPMailer.
 
-= 1.0 =
+## Contribuição
 
-- Primeira versão do plugin.
+Para contribuir:
+
+1. Abra uma _Issue_ para discutir a proposta.
+2. Faça um _fork_ e crie uma nova _branch_ para sua feature.
+3. Abra um _Pull Request_ para revisão.
+
+## Observações
+
+- Esta versão estável (v1.5) inclui a lógica de filas para melhorar a performance e reduzir a duplicidade de e-mails.
